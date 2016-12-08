@@ -4,7 +4,7 @@
 \alias{geom_freqpoly}
 \alias{geom_histogram}
 \alias{stat_bin}
-\title{Histograms and frequency polygons.}
+\title{Histograms and frequency polygons}
 \usage{
 geom_freqpoly(mapping = NULL, data = NULL, stat = "bin",
   position = "identity", ..., na.rm = FALSE, show.legend = NA,
@@ -47,8 +47,8 @@ often aesthetics, used to set an aesthetic to a fixed value, like
 \code{color = "red"} or \code{size = 3}. They may also be parameters
 to the paired geom/stat.}
 
-\item{na.rm}{If \code{FALSE} (the default), removes missing values with
-a warning.  If \code{TRUE} silently removes missing values.}
+\item{na.rm}{If \code{FALSE}, the default, missing values are removed with
+a warning. If \code{TRUE}, missing values are silently removed.}
 
 \item{show.legend}{logical. Should this layer be included in the legends?
 \code{NA}, the default, includes if any aesthetics are mapped.
@@ -75,14 +75,14 @@ the default plot specification, e.g. \code{\link{borders}}.}
 \item{center}{The center of one of the bins.  Note that if center is above or
 below the range of the data, things will be shifted by an appropriate
 number of \code{width}s. To center on integers, for example, use
-\code{width=1} and \code{center=0}, even if \code{0} is outside the range
+\code{width = 1} and \code{center = 0}, even if \code{0} is outside the range
 of the data.  At most one of \code{center} and \code{boundary} may be
 specified.}
 
 \item{boundary}{A boundary between two bins. As with \code{center}, things
 are shifted when \code{boundary} is outside the range of the data. For
 example, to center on integers, use \code{width = 1} and \code{boundary =
-0.5}, even if \code{1} is outside the range of the data.  At most one of
+0.5}, even if \code{0.5} is outside the range of the data.  At most one of
 \code{center} and \code{boundary} may be specified.}
 
 \item{breaks}{Alternatively, you can supply a numeric vector giving
@@ -96,22 +96,26 @@ or left edges of bins are included in the bin.}
 frequency polygons touch 0. Defaults to \code{FALSE}.}
 }
 \description{
-Display a 1d distribution by dividing into bins and counting the number
-of observations in each bin. Histograms use bars; frequency polygons use
-lines.
+Visualise the distribution of a single continuous variable by dividing
+the x axis into bins and counting the number of observations in each bin.
+Histograms (\code{geom_histogram}) display the count with bars; frequency
+polygons (\code{geom_freqpoly}), display the counts with lines. Frequency
+polygons are more suitable when you want to compare the distribution
+across a the levels of a categorical variable.
 
 \code{stat_bin} is suitable only for continuous x data. If your x data is
   discrete, you probably want to use \code{\link{stat_count}}.
 }
 \details{
-By default, \code{stat_bin} uses 30 bins - this is not a good default,
-but the idea is to get you experimenting with different binwidths. You
-may need to look at a few to uncover the full story behind your data.
+By default, the underlying computation (\code{stat_bin}) uses 30 bins -
+this is not a good default, but the idea is to get you experimenting with
+different binwidths. You may need to look at a few to uncover the full
+story behind your data.
 }
 \section{Aesthetics}{
 
-\code{geom_histogram} uses the same aesthetics as \code{geom_bar};
-\code{geom_freqpoly} uses the same aesthetics as \code{geom_line}.
+\code{geom_histogram} uses the same aesthetics as \code{\link{geom_bar}};
+\code{geom_freqpoly} uses the same aesthetics as \code{\link{geom_line}}.
 }
 
 \section{Computed variables}{
@@ -176,7 +180,6 @@ m + geom_histogram(boundary = 0) + coord_trans(x = "sqrt")
 m <- ggplot(movies, aes(x = rating))
 m + geom_histogram(binwidth = 0.5) + scale_y_sqrt()
 }
-rm(movies)
 }
 \seealso{
 \code{\link{stat_count}}, which counts the number of cases at each x

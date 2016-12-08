@@ -17,7 +17,7 @@
 \alias{scale_fill_gradient}
 \alias{scale_fill_gradient2}
 \alias{scale_fill_gradientn}
-\title{Smooth gradient between two colours}
+\title{Gradient colour scales}
 \usage{
 scale_colour_gradient(..., low = "#132B43", high = "#56B1F7",
   space = "Lab", na.value = "grey50", guide = "colourbar")
@@ -40,7 +40,7 @@ scale_fill_gradientn(..., colours, values = NULL, space = "Lab",
   na.value = "grey50", guide = "colourbar", colors)
 }
 \arguments{
-\item{...}{Other arguments passed on to \code{\link{discrete_scale}}
+\item{...}{Other arguments passed on to \code{\link{continuous_scale}}
 to control name, limits, breaks, labels and so forth.}
 
 \item{low, high}{Colours for low and high ends of the gradient.}
@@ -115,7 +115,7 @@ ggplot(df, aes(x, y)) +
 \code{\link[scales]{seq_gradient_pal}} for details on underlying
   palette
 
-Other colour scales:
+Other colour scales: \code{\link{scale_alpha}},
   \code{\link{scale_colour_brewer}},
   \code{\link{scale_colour_grey}},
   \code{\link{scale_colour_hue}}
